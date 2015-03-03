@@ -1,14 +1,13 @@
 package com.example.tests;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class ContactCreationTests extends TestBase{
 
         @Test
         public void testNonEmptyContactCreation() throws Exception {
-            openMainPage();
-            initContactCreation();
+            app.openMainPage();
+            app.initContactCreation();
             ContactsData contact = new ContactsData();
             contact.setFirstname("name 1");
             contact.setLastname("last name 1");
@@ -24,15 +23,15 @@ public class ContactCreationTests extends TestBase{
             contact.setGroup("это раз");
             contact.setAddress2("addr 2");
             contact.setPhone2("phone 1");
-            fillContactForm(contact);
-            submitContactCreation();
-            returnToHomePage();
+            app.fillContactForm(contact);
+            app.submitContactCreation();
+            app.returnToHomePage();
         }
 
         @Test
         public void testEmptyContactCreation() throws Exception {
-            openMainPage();
-            initContactCreation();
+            app.openMainPage();
+            app.initContactCreation();
             ContactsData contact = new ContactsData();
             contact.setFirstname("");
             contact.setLastname("");
@@ -48,9 +47,9 @@ public class ContactCreationTests extends TestBase{
             contact.setGroup("");
             contact.setAddress2("");
             contact.setPhone2("");
-            fillContactForm(contact);
-            submitContactCreation();
-            returnToHomePage();
+            app.fillContactForm(contact);
+            app.submitContactCreation();
+            app.returnToHomePage();
         }
 
 

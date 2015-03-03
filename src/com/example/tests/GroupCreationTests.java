@@ -6,26 +6,26 @@ public class GroupCreationTests extends TestBase{
 
     @Test
     public void testNonEmptyGroupCreation() throws Exception {
-        openMainPage();
-        gotoGroupsPage();
-        initGroupCreation();
+        app.openMainPage();
+        app.gotoGroupsPage();
+        app.initGroupCreation();
         GroupData group = new GroupData();
         group.setName("это раз");
         group.setHeader("это два");
         group.setFooter("это три");
-        fillGroupForm(group);
-        submitGroupCreation();
-        returnToGroupsPage();
+        app.fillGroupForm(group);
+        app.submitGroupCreation();
+        app.returnToGroupsPage();
     }
 
     @Test
     public void testEmptyGroupCreation() throws Exception {
-        openMainPage();
-        gotoGroupsPage();
-        initGroupCreation();
-        fillGroupForm(new GroupData(" ", " ", " "));
-        submitGroupCreation();
-        returnToGroupsPage();
+        app.openMainPage();
+        app.gotoGroupsPage();
+        app.initGroupCreation();
+        app.fillGroupForm(new GroupData(" ", " ", " "));
+        app.submitGroupCreation();
+        app.returnToGroupsPage();
     }
 
 }
