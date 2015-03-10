@@ -9,25 +9,42 @@ public class GroupHelper extends HelperBase {
     }
 
     public void initGroupCreation() {
-        driver.findElement(By.name("new")).click();
+
+        click(By.name("new"));
     }
 
     public void fillGroupForm(GroupData groupData) {
-        driver.findElement(By.name("group_name")).clear();
-        driver.findElement(By.name("group_name")).sendKeys(groupData.getName());
-        driver.findElement(By.name("group_header")).clear();
-        driver.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-        driver.findElement(By.name("group_footer")).clear();
-        driver.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+        type(By.name("group_name"), groupData.getName());
+        type(By.name("group_header"), groupData.getHeader());
+        type(By.name("group_footer"), groupData.getFooter());
     }
 
     public void returnToGroupsPage() {
 
-        driver.findElement(By.linkText("group page")).click();
+        click(By.linkText("group page"));
     }
 
     public void submitGroupCreation() {
 
-        driver.findElement(By.name("submit")).click();
+        click(By.name("submit"));
+    }
+
+    public void deleteGroup(int index) {
+        selectGroupByIndex(index);
+        click(By.name("delete"));
+    }
+
+    private void selectGroupByIndex(int index) {
+        click(By.xpath("//input[@name='selected[]'][" + index + "]"));
+    }
+
+    public void initGroupModification(int index) {
+        selectGroupByIndex(index);
+        click(By.name("edit"));
+
+    }
+
+    public void submitGroupModification() {
+        click(By.name("update"));
     }
 }

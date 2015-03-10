@@ -10,50 +10,34 @@ public class ContactHelper extends HelperBase{
     }
 
     public void initContactCreation() {
-        driver.findElement(By.linkText("add new")).click();
+
+        click(By.linkText("add new"));
     }
 
     public void fillContactForm(ContactsData contactsData) {
-        driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(contactsData.getFirstname());
-        driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(contactsData.getLastname());
-        driver.findElement(By.name("address")).clear();
-        driver.findElement(By.name("address")).sendKeys(contactsData.getAddress());
-        driver.findElement(By.name("home")).clear();
-        driver.findElement(By.name("home")).sendKeys(contactsData.getHome());
-        driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(contactsData.getMobile());
-        driver.findElement(By.name("work")).clear();
-        driver.findElement(By.name("work")).sendKeys(contactsData.getWork());
-        driver.findElement(By.name("email")).clear();
-        driver.findElement(By.name("email")).sendKeys(contactsData.getEmail());
-        driver.findElement(By.name("email2")).clear();
-        driver.findElement(By.name("email2")).sendKeys(contactsData.getEmail2());
-        new Select(
-                driver.findElement(By.name("bday"))).selectByVisibleText(contactsData.getBday());
-        new Select(
-                driver.findElement(By.name("bmonth"))).selectByVisibleText(contactsData.getBmonth());
 
-        driver.findElement(By.name("byear")).clear();
+        type(By.name("firstname"), contactsData.getFirstname());
+        type(By.name("lastname"), contactsData.getLastname());
+        type(By.name("address"), contactsData.getAddress());
+        type(By.name("home"), contactsData.getHome());
+        type(By.name("mobile"), contactsData.getMobile());
+        type(By.name("work"), contactsData.getWork());
+        type(By.name("email"), contactsData.getEmail());
+        type(By.name("email2"), contactsData.getEmail2());
+        selectByText(By.name("bday"), contactsData.getBday());
+        selectByText(By.name("bmonth"), contactsData.getBmonth());
+        type(By.name("byear"), contactsData.getByear());
+        //selectByText(By.name("new_group"), contactsData.getGroup());
+        type(By.name("address2"), contactsData.getAddress2());
+        type(By.name("phone2"), contactsData.getPhone2());
 
-        driver.findElement(By.name("byear")).sendKeys(contactsData.getByear());
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactsData.getGroup());
-
-        driver.findElement(By.name("address2")).clear();
-
-        driver.findElement(By.name("address2")).sendKeys(contactsData.getAddress2());
-
-        driver.findElement(By.name("phone2")).clear();
-
-        driver.findElement(By.name("phone2")).sendKeys(contactsData.getPhone2());
     }
 
     public void submitContactCreation() {
-        driver.findElement(By.name("submit")).click();
+        click(By.name("submit"));
     }
 
     public void returnToHomePage() {
-        driver.findElement(By.linkText("home page")).click();
+        click(By.linkText("home page"));
     }
 }

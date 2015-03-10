@@ -6,8 +6,8 @@ public class ContactCreationTests extends TestBase{
 
         @Test
         public void testNonEmptyContactCreation() throws Exception {
-            app.navigationHelper.openMainPage();
-            app.contactHelper.initContactCreation();
+            app.getNavigationHelper().openMainPage();
+            app.getContactHelper().initContactCreation();
             ContactsData contact = new ContactsData();
             contact.setFirstname("name 1");
             contact.setLastname("last name 1");
@@ -23,15 +23,15 @@ public class ContactCreationTests extends TestBase{
             contact.setGroup("это раз");
             contact.setAddress2("addr 2");
             contact.setPhone2("phone 1");
-            app.contactHelper.fillContactForm(contact);
-            app.contactHelper.submitContactCreation();
-            app.contactHelper.returnToHomePage();
+            app.getContactHelper().fillContactForm(contact);
+            app.getContactHelper().submitContactCreation();
+            app.getContactHelper().returnToHomePage();
         }
 
         @Test
         public void testEmptyContactCreation() throws Exception {
-            app.navigationHelper.openMainPage();
-            app.contactHelper.initContactCreation();
+            app.getNavigationHelper().openMainPage();
+            app.getContactHelper().initContactCreation();
             ContactsData contact = new ContactsData();
             contact.setFirstname("");
             contact.setLastname("");
@@ -47,9 +47,9 @@ public class ContactCreationTests extends TestBase{
             contact.setGroup("");
             contact.setAddress2("");
             contact.setPhone2("");
-            app.contactHelper.fillContactForm(contact);
-            app.contactHelper.submitContactCreation();
-            app.contactHelper.returnToHomePage();
+            app.getContactHelper().fillContactForm(contact);
+            app.getContactHelper().submitContactCreation();
+            app.getContactHelper().returnToHomePage();
         }
 
 

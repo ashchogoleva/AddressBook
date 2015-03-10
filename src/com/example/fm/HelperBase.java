@@ -1,6 +1,8 @@
 package com.example.fm;
 
+import com.example.tests.GroupData;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 
 public abstract class HelperBase {
 
@@ -45,5 +47,24 @@ public abstract class HelperBase {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    protected void click(By locator) {
+        driver.findElement(locator).click();
+    }
+
+    protected void type(By locator, String text) {
+        if (text !=null){
+            driver.findElement(locator).clear();
+            driver.findElement(locator).sendKeys(text);
+        }
+    }
+
+    protected void selectByText(By locator, String text) {
+        if (text !=null){
+            new Select(
+                    driver.findElement(locator)).selectByVisibleText(text);
+        }
+
     }
 }
